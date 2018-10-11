@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
@@ -24,10 +24,18 @@
   </build>
 
   <dependencies>
+    <!--tag::spring-boot-->
     <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-web</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-tomcat</artifactId>
+      <!--<scope>provided</scope>-->
+    </dependency>
+    <!--end::spring-boot-->
+
     <dependency>
       <groupId>org.springframework.session</groupId>
       <artifactId>spring-session-core</artifactId>
@@ -37,12 +45,34 @@
       <artifactId>spring-session-data-redis</artifactId>
     </dependency>
     <dependency>
-        <groupId>redis.clients</groupId>
-        <artifactId>jedis</artifactId>
-        <version>2.9.0</version>
-        <type>jar</type>
-        <scope>compile</scope>
+      <groupId>redis.clients</groupId>
+      <artifactId>jedis</artifactId>
+      <version>2.9.0</version>
+      <type>jar</type>
+      <scope>compile</scope>
     </dependency>
+
+    <!-- tag::security[] -->
+    <!--<dependency>-->
+    <!--<groupId>org.springframework.boot</groupId>-->
+    <!--<artifactId>spring-boot-starter-security</artifactId>-->
+    <!--</dependency>-->
+    <!--<dependency>-->
+    <!--<groupId>org.springframework.security.oauth</groupId>-->
+    <!--<artifactId>spring-security-oauth2</artifactId>-->
+    <!--<version>2.3.3.RELEASE</version>-->
+    <!--</dependency>-->
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-security</artifactId>
+      <version>2.0.0.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.security.oauth</groupId>
+      <artifactId>spring-security-oauth2</artifactId>
+      <version>2.3.3.RELEASE</version>
+    </dependency>
+    <!-- end::security[] -->
 
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -58,11 +88,6 @@
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
       <version>25.1-jre</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-tomcat</artifactId>
-      <!--<scope>provided</scope>-->
     </dependency>
   </dependencies>
 </project>

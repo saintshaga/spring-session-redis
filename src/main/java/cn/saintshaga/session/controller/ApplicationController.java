@@ -24,21 +24,4 @@ public class ApplicationController {
         return "Hello, World! Timeout session: "+session.getMaxInactiveInterval() + tenantId.getTenantId();
     }
 
-    @RequestMapping("/session")
-    public String session(@RequestParam("user") String user, HttpSession session) {
-        if(session.getAttribute("user")  == null){
-            session.setAttribute("user",user);
-            return "沒有login! login user :" + user;
-        }
-
-        return "已經login, user :"+session.getAttribute("user").toString();
-    }
-
-
-    @RequestMapping("/health/v1/requestStatus")
-    public String testHealthPage(){
-        return "This is health page. This page do not require auth!";
-    }
-
-
 }
