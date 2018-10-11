@@ -1,5 +1,7 @@
 package cn.saintshaga.session.config;
 
+import cn.saintshaga.session.gson.JsonRedisSerializer;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
@@ -15,4 +17,10 @@ public class RedisSessionConfig {
     public JedisConnectionFactory jedisConnectionFactory() {
         return new JedisConnectionFactory(new RedisStandaloneConfiguration("172.26.136.55", 6379));
     }
+
+//    @Bean
+//    @Qualifier("springSessionDefaultRedisSerializer")
+//    public JsonRedisSerializer jsonRedisSerializer() {
+//        return new JsonRedisSerializer();
+//    }
 }
